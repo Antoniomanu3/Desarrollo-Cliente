@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+
+<body>
+    <script>
+        function saludar(nombre) {
+            alert('Hola ' + nombre);
+        }
+        function procesarEntradaUsuario(callback) {
+            var nombre = prompt('Por favor introduce tu nombre.');
+            callback(nombre);
+        }
+        procesarEntradaUsuario(saludar);
+
+        //primero se ejecutan las funciones con menos milisegundos:
+        setTimeout(function () {
+            alert("He ejecutado la funcion");
+        }, 5000);
+
+        setTimeout(function () {
+            alert("Un segundo");
+        }, 1000);
+
+        setTimeout(function () {
+            alert("Han tramscurrido dos segundos");
+        }, 1000);
+
+        setTimeout(function () {
+            alert("Han tramscurrido 3 segundos");
+        }, 1000);
+
+
+        //sort de forma estricta:
+        var animales = ["Ñu", "Águila", "buitre", "oso", "marsopa", "Nutria"];
+        animales.sort((a, b) => a.length - b.length);
+        //muestra: Array(6) [ "Ñu", "oso", "Águila", "buitre", "Nutria", "marsopa" ]
+
+        //sort con el LocalCompare
+        var animales = ["Ñu", "Águila", "buitre", "oso", "marsopa", "Nutria"];
+        //animales.sort((a, b) => a.localeCompare(b));
+        animales.sort((a, b) => a.localeCompare(b, "es"));
+        //muestra: Array(6) [ "Águila", "buitre", "marsopa", "Nutria", "Ñu", "oso" ]
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <input type="text" id="entrada"><br><br>
+    <textarea name="pantalla" id="" cols="30" rows="10"></textarea><br><br>
+    <input type="button" value="Visualizar" onclick="mostrar();">
+
+    <script>
+        function mostrar() {
+            let texto = document.getElementById("entrada").value;
+            let cadaLetra = '';
+            for (let caracter of texto) {
+                cadaLetra += caracter + '\n';
+                console.log(caracter);
+            }
+            document.getElementsByName("pantalla")[0].value=cadaLetra;
+        }
+    </script>
+
+
+    <!-- <script lang="JavaScript">
+        var numeros = [5, 2, 13, 45, 24, 46];
+        function mostrar() {
+            let texto = "";
+            for (let i=0; i<numeros.length;i++) {
+                texto=texto + numeros[i] + '\n';
+                console.log(texto);
+            }
+            document.getElementsByName("pantalla")[0].value=texto;
+        }
+    </script> -->
+</body>
+</html>

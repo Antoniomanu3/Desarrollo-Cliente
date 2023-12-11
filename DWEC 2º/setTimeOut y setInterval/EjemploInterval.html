@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <input type="text" id="contador">
+    <input type="button" value="iniciar" onclick="contando()">
+    <input type="button" value="cancelar" onclick="cancelando()">
+
+    <script>
+        let tiempo;
+        document.getElementById("contador").value = 0;
+        function contando() {
+            tiempo= window.setInterval(acontar, 1000);
+        }
+        
+        function acontar() {
+            document.getElementById("contador").value = parseInt(document.getElementById("contador").value) + 1;
+        }
+
+        function cancelando() {
+            window.setInterval(tiempo);
+        }
+        </script>
+</body>
+</html>

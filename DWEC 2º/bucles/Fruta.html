@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elige fruta</title>
+</head>
+
+<body>
+    <input type="text" name="frutas"> <br> <br>
+    <input type="button" value="Clasificar" onclick="clasificafruta();">
+    <script lang="javascript">
+        var tipoFruta;
+        function clasificafruta() {
+            tipoFruta = document.getElementsByName("frutas")[0].value;
+
+            switch (tipoFruta) {
+            case "Naranjas":
+                console.log("Fruta de invierno");
+                break;
+            case "Manzanas":
+                console.log("Fruta de invierno");
+                break;
+            case "Plátanos":
+                console.log("De toda la temporada");
+                break;
+            case "Cerezas":
+                console.log("Fruta de verano");
+                break;
+            case "Mangos":
+                console.log("de toda la temporada");
+                break;
+            case "Papayas":
+                console.log("Fruta de verano");
+                break;
+            default:
+                console.log("El producto " + tipoFruta + " no esta disponible");
+        }
+        }
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style></style>
+</head>
+
+<body><u></u>
+
+    <div>
+        <form name="m__humano" target="_blank">
+            <center>
+                <p>Se trata de diseñar un pequeño formulario que detecte</p>
+                <p>en el lado del cliente la presencia o no de una máquina</p>
+                <input type="text" name="referencia" align="center"
+                    style="font-size:100%;text-align:center;font-family:fantasy">
+                <h3 align="center">Introduzca en la siguiente caja los caracteres de la caja superior</h3>
+                <input type="text" name="cliente" style="font-size:100%;text-align:center"><br><br>
+                <input type="button" value="Aceptar">
+            </center>
+        </form>
+
+        <script>
+            var tuPalabra = document.getElementsByName("cliente");
+
+            function addRandomLetter() {
+                var textbox = document.getElementsByName("Maquina");
+                var caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+                for(var i = 0; i < 6; i++) {
+                    textbox.value += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+                    clearInterval(intervalID);
+                }
+            }
+
+            var intervalID = setInterval(addRandomLetter, 1000);
+
+            function Aceptar(textbox) {
+                alert(tuPalabra);
+
+                if (tuPalabra == textbox) {
+                    alert("coincide");
+                } else {
+                    alert("no coincide");
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html

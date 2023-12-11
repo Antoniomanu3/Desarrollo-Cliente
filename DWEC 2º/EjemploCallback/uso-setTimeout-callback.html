@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Bienvenido al visualizador de escudos de selecciones</p><br>
+    <img id="escudo" src="img/españa.png" width="200" height="300" alt="">
+    <script>
+        function cambiar(){
+            document.getElementById("escudo").src="img/alemania.png"
+        }
+        var disparador=setTimeout(cambiar,5000);
+        clearTimeout("disparador");
+    </script>
+</body>
+</html>

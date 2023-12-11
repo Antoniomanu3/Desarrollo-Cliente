@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Datos proprocionados por el cliente</h1>
+
+    <label for=""> Origen </label>
+    <input type="text" name="viajes"><br><br>
+
+    <label for=""> Destino </label>
+    <input type="text" name="viajes"><br><br>
+
+    <label for=""> Dias </label>
+    <input type="text" name="viajes"><br><br>
+
+    <input type="button" value="Procesar" onclick="Recopilacion()">
+
+    <h1> Informacion de salida</h1>
+
+    <label for=""> precio </label>
+    <input type="text" name="precio"><br><br>
+
+    <h5>Recopilacion</h5>
+    <textarea name="reco" cols="30" rows="10"></textarea>
+
+    <script>
+        let listaPaises = new Map();
+        listaPaises.set('Francia', '50').set('Madrid', '75').set('Italia', '25').set('EEUU', '500').set('BLYADDDD', '69').set('Abundalakaka', '66');
+        
+        let origen = document.getElementsByName("viajes")[0].value;
+        let destino = document.getElementsByName("viajes")[1].value;
+        let dias = document.getElementsByName("viajes")[2].value;
+        let precio = document.getElementsByName("precio")[0].value;
+        let textAreainforme = document.getElementsByName("reco")[0];
+
+        let Recopilacion = () => {
+
+            class Viaje {
+                constructor(origen, destino, dias) {
+                    this.origen = origen;
+                    this.destino = destino;
+                    this.dias = dias;
+                }
+                informe() {
+                    let preciototal = this.dias * precio;
+                    textAreainforme.value = "El viaje con origen en " + this.origen + "\n " + " Y destino " + this.destino + "\n " + " para una estancia de " + this.dias + "\n " + " dias tiene un coste de " + this.preciototal;
+                }
+            }
+            let objviaje = new Viaje(origen, destino, dias);
+            objviaje.informe();
+        }
+
+    </script>
+</body>
+
+</html>

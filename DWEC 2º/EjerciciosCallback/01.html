@@ -1,0 +1,82 @@
+<!-- 1. - Desarrollar web que permita determinar si un número es par o impar.
+Para ello se partirá de un documento HTML base:
+ Caja de texto en la que se irán introduciendo los números y que, al hacer click
+en el botón “Añadir”, pasarán a formar parte de una estructura de
+almacenamiento que no permita almacenar números repetidos.
+ El máximo número de números a introducir es 10.
+ Se debe controlar el número que queda por introducir mediante un contador
+decreciente reflejado en una caja de texto.
+Una vez que se tienen los 10 números, se desarrollará el código que permita visualizar
+los números pares en un textarea y los impares en otro textarea. Este código deberá
+utilizar métodos avanzados de los Arrays y la función “callback” correspondiente.
+Se utilizará un botón denominado “visualizar”. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAR-IMPAR CON CALLBACK</title>
+</head>
+
+<body>
+
+    <form action="" name="form0">
+        <h3>Introduzca 10 números</h3>
+        <label for="">Números:</label><input type="text" id="entrada"><br><br>
+        <input type="button" value="AÑADIR" onclick="añadiendo();"><br><br>
+        <label for="">Números a añadir que quedan:</label><input type="text" id="contador" value=10><br><br>
+        <h3>Pulse en el botón para ver qué números son pares y cuáles impares</h3><br><br>
+        <input type="button" value="VISUALIZAR" onclick="visualizando();"><br><br>
+        <p>Números pares:</p><br><br>
+        <textarea name="pares" cols="30" rows="10"></textarea><br><br>
+        <p>Números impares:</p>
+        <textarea name="impares" cols="30" rows="10"></textarea><br><br>
+        <script>
+            let lista = new Set();
+            let listacomoarray = new Array()
+            let listpair = new Array();
+            let listodd = new Array();
+            let añadiendo = () => {
+                if (document.getElementById("contador").value > 0 && document.getElementById("contador").value <= 10) {
+                    lista.add(document.getElementById("entrada").value);
+                    console.log(lista);
+                } else {
+                    if (document.getElementById("contador").value == 0) {
+                        alert("La lista de números se ha completado")
+                    }
+                }
+                document.getElementById("contador").value = 10 - lista.size;
+                document.getElementById("entrada").value = "";
+            }
+            let visualizando = () => {
+                let secuenciaimpar = "";
+                let secuenciapar = "";
+                listacomoarray = [...lista];
+                console.log(listacomoarray);
+                //Si se mantiene el Set se puede utilizar "foreach": lista.foreach(callback=>control de paridad);
+                //Con Arrays, también se podría utilizar el método "map": listacomoarray.map(callback=>control de paridad);
+                listpair = listacomoarray.filter((valor) => {
+                    if (parseInt(valor) % 2 == 0) {
+                        secuenciapar = secuenciapar + valor + " ";
+                        return valor;
+                    } else {
+                        listodd.push(valor);
+                        secuenciaimpar = secuenciaimpar + valor + " ";
+                    }
+                });
+                document.getElementsByName("pares")[0].value = secuenciapar;
+                document.getElementsByName("impares")[0].value = secuenciaimpar;
+                console.log(listpair);
+                console.log(listodd);
+            }
+
+        </script>
+
+
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script lang="javascript">
+        var dir1 = "img/fotitos";
+
+        function VerFoto() {
+            var indice = document.f1.selectedIndex;
+            var valor = document.f1.fotos.options[document.f1.fotos.selectedIndex].value;
+            //el valor .fotos. es el name del select de mas abajo
+            if (indice == 0 && valor == 'selecciona') {
+                alert("No has elegido ninguna foto");
+            } else {
+                document.images['f'].src = dir1 + valor;
+            }
+
+            //otra opcion para declarar
+
+            // let elemento = document.getElementById("fotos")[0].value;
+            // document.getElementsByName("f")[0].src=dir1+elemento;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="Galeria1">
+        <h1>Galeria 1</h1>
+        <form name="f1">
+            <img name="f" src="img/fotito1" width="500" height="300">
+            <!--se provoca cuando hay un cambio-->
+            <select name="fotos" onchange="VerFoto()">
+                <option value="selecciona" selected>Selecciona una foto</option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+                <option value='img/fotitos.jpg'></option>
+
+            </select> <br> <br>
+        </form>
+</body>
+
+</html>

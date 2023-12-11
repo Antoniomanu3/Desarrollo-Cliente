@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial con recursividad</title>
+</head>
+<body>
+    <h2>Introduce número a calculr factorial</h2><br><br>
+    <label for="">Número:</label><input type="text" id="nro"><br><br>
+    <label for="">Factorial:</label><input type="text" id="fct"><br><br>
+    <input type="button" value="Calcular" onclick="obtenerfactorial();">
+    <script lang="javascript">
+        let ctlnumero=document.getElementById("nro");
+        let ctlfactorial=document.getElementById("fct");
+        
+        /*let obtenerfactorial=()=>{
+                let numero=parseInt(ctlnumero.value);
+                const factorial =fac=(n)=> {
+                        return n < 2 ? 1 : n * fac(n - 1);
+                    };
+                //Ojo en cómo se invoca la función factorial por medio
+                //de la constante que la referencia
+                ctlfactorial.value=factorial(numero);
+            }*/
+   
+    function obtenerfactorial(){
+        let numero=parseInt(ctlnumero.value);
+        //const factorial=function fac(n){
+        function fac(n){
+                return n < 2 ? 1 : n * fac(n - 1);
+            };
+            ctlfactorial.value=fac(numero);      
+            
+        }
+        //o invocando de la siguiente forma
+        //ctlfactorial.value=factorial(numero);
+</script>
+</body>
+</html>

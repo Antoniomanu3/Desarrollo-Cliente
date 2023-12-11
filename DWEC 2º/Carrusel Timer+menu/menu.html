@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <a>Menu del dia</a>
+        <form name="opciones">
+            <p><b>Elige el primer plato</b>
+                <select size="1" name="PRIMERPLATO">
+                    <option value="" selected>Selecciona el primer plato</option>
+                    <option value="Garbanzos">Garbanzos</option>
+                    <option value="Lentejas">Lentejas</option>
+                    <option value="Judias">Judias</option>
+                    <option value="Paella"></option>
+                </select>
+            </p>
+            <p><b>Elige el segundo plato</b>
+                <select size="3" name="SEGUNDOPLATO" multiple>
+                    <option>Entrecot a la plancha</option>
+                    <option>Pescado a la plancha</option>
+                    <option>cochinillo</option>
+                    <option selected>Huevos con bacon y chorizo</option>
+                </select>
+            <p><b>Postre</b>
+                <input type="radio" name="POSTRE" value="FRUTA" checked>Fruta
+                <input type="radio" name="POSTRE" value="HELADO" checked>Helado
+                <input type="radio" name="POSTRE" value="YOGUR" checked>Yogur
+                <input type="radio" name="POSTRE" value="OTRO" checked>Otro <br><br>
+
+                <input type="button" value="ver menu" name="VER" onclick="VerSeleccion(this.form)">
+        </form>
+    </center>
+    <script lang="javascript">
+        function VerSeleccion (){
+        var primero = document.getElementsByName("PRIMERPLATO")[0].value;
+        var segundo = document.getElementsByName("SEGUNDOPLATO")[0].value;
+        var Postre = document.getElementsByName("POSTRE")[i];
+
+        for(var i = 0; i < document.opciones.Postre.length; i++) {
+            if(document.opciones.Postre[i].checked) {
+                alert('Has elegido ' + postre);
+            }
+        }
+        document.getElementsByName("comida")[0].value = "primero ... tal tal"
+        }
+    </script>
+
+</body>
+</html>

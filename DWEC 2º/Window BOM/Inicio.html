@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repaso</title>
+</head>
+<body>
+    <script>
+        //no esta en el word BOM1, se va a refereciar
+        window.opener("");
+        window.parent();
+        window.top();//objeto window de mas nivel jerarquico
+        
+        window.confirm(); //ventana con dialogo y btn Aceptar y cancelar
+        //uso metodo open
+        var refer_obj_window = window.open([url],[nombre_de_la_ventana],[configuracion_ventana]);
+        //uso metodo close
+        nombre_de_la_ventana.close();
+        //pone el foco en la ventana abierta, la "activa"
+        nombre_de_la_ventana.focus();
+
+        //uso MoveBy, solo usable en ventanas abiertas por script
+        nombre_de_la_ventana.moveBy(200, 200); //valor x e y respectivamente
+        //luego se le aplica focus para que sea visible
+
+        //uso MoveTo, lo mismo que el By pero en pixeles
+        nombre_de_la_ventana.moveTo(0, 0); //luego focus
+
+        //uso resizeBy, agranda o disminuye la pantalla por pixeles
+        nuevaVentana.resizeBy(250, 250); //focus
+        //uso resizeTo, ancho y alto respectivamente
+        nuevaVentana.resizeTo(100, 100); //focus
+
+        //uso scrollBy
+        window.scrollBy(0, 400); //Desplaza el scroll 400 píxeles hacia abajo
+        //uso ScrollTo
+        window.scrollTo(0, 400); //Coloca el scroll 400 píxeles por debajo del origen
+
+        window.stop();
+        window.load();
+
+        /*-------------
+        Eventos History
+        -------------*/
+
+        //uso length, numero de paginas del historial
+        var numeroDeEntradas = window.history.length;
+        //uso state
+        alert ('Valor window.history.state es: '+ window.history.state); // Por defecto null
+        var currentState = history.state;
+
+        //uso back, retrocede el historial
+        window.history.back();
+        //uso forward, avanza hacia adelante el historial
+        window.history.forward();
+        //uso go, como back y forward
+        window.history.go(-1); //para back
+        window.history.go(1); //para forward
+        //los siguientes, para actualizar la pagina
+        window.history.go(0);
+        window.history.go();
+
+        pushState(); //añade entradas en el historial
+        replaceState(); //modifica entradas en el historial
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangulo asteriscos</title>
+    <textarea name="pantalla" id="Area" cols="30" rows="10"></textarea><br><br>
+    <input type="button" value="Triangulo" onclick="triangulo();">
+    <input type="button" value="rectangulo" onclick="rectangulo();">
+</head>
+<body>
+    <script lang="JavaScript">
+        var tarea = document.getElementById("Area");
+        var tamanio = 10;
+        
+        function triangulo() {
+            var texto='';
+            for (let row=0;row<tamanio;row++) {
+                for(let col = 0; col< row + 1;col++) {
+                    texto += '*';
+                }
+                texto += '\n';
+            }
+            tarea.value = texto;
+        }
+        
+        function rectangulo() {
+            var texto='';
+            for (let row=0;row<tamanio;row++) {
+                for(let col = 0; col<tamanio;col++) {
+                    texto += '*';
+                }
+                texto += '\n';
+            }
+            tarea.value = texto;
+        }
+    </script>
+</body>
+</html>

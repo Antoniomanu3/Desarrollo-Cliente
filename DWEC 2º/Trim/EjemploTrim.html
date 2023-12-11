@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>limpiar input text</title>
+</head>
+<body>
+
+    <input type="text" id="texto1"/> <br> <br>
+    <input type="text" id="texto2"/> <br> <br>
+    <input type="button" value="limpiar" onclick="limpiar()"/> <br> <br>
+    <input type="button" value="sumar" onclick="sumar()"/> <br> <br>
+
+    <script> 
+
+    let inputText1 = document.getElementById("texto1");
+    let inputText2 = document.getElementById("texto2");
+    let limpiar1;
+    let limpiar2;
+
+    function limpiar() {
+        limpiar1 = inputText1.value.trim();
+        limpiar2 = inputText2.value.trim();
+        alert("Este es el texto 1 sin espacios al inicio y al final \n " + limpiar1);
+        alert("Este es el texto 2 sin espacios al inicio y al final \n " + limpiar2);
+    }
+
+    function sumar() {
+       
+        
+        let sumaTexto=limpiar1.concat(limpiar2);
+        alert("Esta es la suma del primer y segundo texto \n " + sumaTexto);
+    }
+    </script>
+</body>
+</html>

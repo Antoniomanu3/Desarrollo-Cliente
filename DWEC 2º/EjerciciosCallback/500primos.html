@@ -1,0 +1,67 @@
+<!-- 2. - Desarrollar web que permita visualizar, de entre los primeros 500 número
+decimales, aquellos que sean primos.
+Para ello se partirá de un documento HTML base:
+Textarea en el que se reflejarán 15 números por fila.
+Botón que permitirá iniciar el proceso de cálculo mediante un click.
+Se tratará de crear una estructura de datos en la que se almacenen los 500 números.
+Luego, mediante uno de los métodos avanzados y funciones callback, crear una nueva
+estructura que almacene los números primos.
+Posteriormente, se recorrerá esa estructura y se irá presentando cada uno de los
+primos en el textarea con el formato anteriormente mencionado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NÚMEROS PRIMOS</title>
+</head>
+<body>
+    <h2>OBTENCIÓN DE LOS NÚMEROS PRIMOS EXISTENTES ENTRE 1 Y 500 </h2>
+    <input type="button" value="VISUALIZAR NÚMEROS PRIMO" onclick="obtener();"><br><br>
+    <textarea name="pantalla" cols="58" rows="10"></textarea><br>
+    <script>
+        let numeros=new Array();
+        let nrosprimos=new Array();
+        for(let i=1;i<=500;i++){
+            numeros.push(i);
+        }
+        let obtener=()=>{
+            let texto="";
+            //nrosprimos=numeros.map((elemento)=>{}) crea un array con valores "undefined" para los no primos.
+            numeros.forEach((elemento)=>{
+                let ctlprimo=true;
+                if(elemento<1) alert("Menor que 1. No se procesa"); 
+                //el 1 le separamos, no hace falta dividir
+                //if(elemento==1) nrosprimos.push(elemento);     
+                //para el resto empezamos a dividir entre 2
+                //y se termina, se finaliza, cuando la raíz cuadrada del número sea menor que el contador
+                //o lo que es lo mismo, cuando el cuadrado del contador supere al número. ej: raíz de 11 = 3,3166247903554;
+                //paso i=3, 3*3=9; paso i=4, 4*4=16 que ya no entra en el bucle.
+                for(let i=2;i*i<=elemento;i++){
+                    //si el número se puede dividir por el contador
+                    //no tenemos un primo
+                    if(elemento%i==0){ console.log("El número " + elemento + " NO es primo");
+                                    ctlprimo=false;
+                                    break;//Salimos de esta iteración sin añadir elemento al array.
+                    }
+                }
+                //si hemos salido del bucle sin ejecutar el return
+                //tenemos un número primo
+                if(ctlprimo){
+                    //El primer elemento, el 1, que es primo, se une porque no se controla en el bucle anterior.
+                    nrosprimos.push(elemento);
+                }
+            });
+            for(let j=0;j<nrosprimos.length;j++){
+                if(j > 0 && j % 15 == 0){
+                    texto=texto + nrosprimos[j]+ "\n";
+                }else{
+                    texto=texto + nrosprimos[j]+ " ";
+                }
+            }
+            document.getElementsByName("pantalla")[0].value=texto;
+        }
+    </script>
+</body>
+</html>

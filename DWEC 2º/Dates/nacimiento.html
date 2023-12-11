@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha de Nacimiento</title>
+</head>
+
+<body>
+    <label for="nombre">Año</label>
+    <input type="text" id="anio" name="Anio" />
+
+    <label for="posicion">Mes</label>
+    <input type="text" id="mes" name="Mes" />
+
+    <label for="posicion">Dia</label>
+    <input type="text" id="dia" name="Dia" /> <br> <br>
+
+    <input type="button" value="añadir" onclick="resultado()"> <br> <br>
+
+    <textarea cols="30" rows="10" name="informe" id="informe"></textarea><br> <br>
+
+    <script>
+        var hoy = new Date();
+        
+        function resultado() {
+            var inputAnio = document.getElementById("anio").value;
+            var inputMes = document.getElementById("mes").value;
+            var inputDia = document.getElementById("dia").value;
+            var fecha = new Date(inputAnio, inputMes, inputDia);
+            var milisegundosna = Date.parse(fecha);
+
+            var a = hoy - fecha;
+
+            var dias =((((hoy-milisegundosna)/1000)/60)/60)/24;
+            var anios = parseInt(dias/365);
+            var meses = parseInt ((dias%365)/30);
+            var diasedad = parseInt((dias%365)/30/30);
+
+            document.getElementById("informe").value =  anios +"Años "+ meses + "meses "+ diasedad +"dias" ;
+
+        }
+    </script>
+</body>
+
+</html>

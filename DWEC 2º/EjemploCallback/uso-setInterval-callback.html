@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>CARRUSEL DE IMÁGENES</p>
+    <img id="cjaimg" src="img/españa.png"  width="200" height="300" alt="">
+    <script>
+        var escudos=["img/españa","img/alemania","img/inglesa","img/francesa"];
+        var i=0;
+        function cambiar(){
+            
+            document.getElementById("cjaimg").src=escudos[i]+".png";
+            i=i+1;
+            if (i==escudos.length){
+                i=0;
+            }
+        }
+        var intervalo=setInterval(cambiar,2000);
+        
+    </script>
+</body>
+</html>

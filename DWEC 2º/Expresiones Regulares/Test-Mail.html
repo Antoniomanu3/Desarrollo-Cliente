@@ -1,0 +1,33 @@
+<!-- Ejemplo:Validar e-mail--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPROBANDO MAIL REGEXPR</title>
+</head> 
+<BODY> 
+
+<FORM >
+<input type="text" name="email" size="50" style="font-family:verdana; font-size:12px;">
+<input type="button" value="Validar e-mail" style="font-family:verdana; font-size:12px;" onClick="validarEmail(this.form.email.value);">
+</FORM>
+<SCRIPT LANGUAGE="JavaScript"> 
+    {
+    function validarEmail(valor) 
+    {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(valor))
+    {
+    alert("La dirección de email " + valor + " es correcta."); 
+    return (true);
+     }
+     else
+     {
+      alert("La dirección de email es incorrecta.");
+      return (false);
+     }
+    }
+    } 
+    </SCRIPT>
+</BODY> 
+</html>

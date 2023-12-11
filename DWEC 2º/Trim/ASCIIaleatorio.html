@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII aleatorio</title>
+</head>
+
+<body>
+    <!--65-90-->
+    <textarea cols="30" rows="10" id="texto1"></textarea><br> <br>
+
+    <script>
+        let num;
+        let letra = "";
+        let total = "";
+        for (let index = 0; index < 6; index++) {
+            num = Math.floor(Math.random() * (90 - 65)) + 65;
+            letra = String.fromCharCode(num);
+
+            total = total.concat(num + "=" + letra) + ", ";
+
+        }
+        document.getElementById("texto1").value = total;
+
+
+    </script>
+
+
+
+</body>
+
+</html>

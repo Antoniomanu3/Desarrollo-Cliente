@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuscarArray</title>
+</head>
+
+<body>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="añadir" name="Nombre" /> <br> <br>
+
+    <input type="button" value="añadir" onclick="Aniadirletra()">
+    <input type="button" value="buscar" onclick="Buscar()"><br> <br>
+
+    <label for="posicion">Posicion</label>
+    <input type="text" id="Posicion" name="Posicion" /> <br> <br>
+
+    <label for="informe">Informe</label>
+    <textarea cols="30" rows="10" name="informe" id="informe"></textarea><br> <br>
+
+    <script>
+        var nombres = new Array();
+        var inputAdd = document.getElementById("añadir");
+        var inputPosicion = document.getElementById("Posicion");
+        var textAreaInforme = document.getElementById("informe");
+
+        function Aniadirletra() {
+            nombres.push(inputAdd.value);
+        }
+
+        function Buscar() {
+            var texto = "El usuario " + inputAdd.value + " se encuentra en la posicion " + nombres.indexOf(inputAdd.value);
+            textAreaInforme.value = texto;
+            ActualizarInputPosicion();
+        }
+
+        function ActualizarInputPosicion() {
+            inputPosicion.value = nombres.indexOf(aniadir.value);
+        }
+    </script>
+</body>
+
+
+</html>

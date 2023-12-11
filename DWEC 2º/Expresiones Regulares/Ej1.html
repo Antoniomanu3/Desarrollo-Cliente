@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <FORM>
+        <input type="text" name="validar" size="50" style="font-family:verdana; font-size:12px;">
+        <input type="button" value="Validartexto" style="font-family:verdana; font-size:12px;"
+            onClick="validarText(this.form.validar.value);">
+    </FORM>
+    <script>
+        {
+            function validarText(valor) {
+
+                if (/^\T\w{1}(os)$/i.test(valor)) {
+                    alert(valor + " es correcta.");
+                    return (true);
+                } else {
+                    alert("incorrecta.");
+                    return (false);
+                }
+            }
+        } 
+    </script>
+</body>
+
+</html>

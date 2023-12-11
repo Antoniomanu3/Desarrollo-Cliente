@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <FORM>
+        <input type="text" name="validar" size="50" style="font-family:verdana; font-size:12px;">
+        <input type="button" value="Validartexto" style="font-family:verdana; font-size:12px;"
+            onClick="validarHora(this.form.validar.value);">
+    </FORM>
+    <script>
+        var objeto = [];
+        var nombre;
+        var referencia;
+        {
+            function validarHora(valor) {
+
+                if (/^\d{4}-\w{5}\d{2}_\d{1}$/.test(valor)) {
+                    alert(valor + " es correcta.");
+                    return (true);
+                } else {
+                    alert("Te faltan datos.");
+                    return (false);
+                }
+            }
+        } 
+
+        function Etiqueta(nombre, referencia){
+            this.nombre = nombre;
+            this.referencia = referencia;
+        }
+
+        var aniadir = new Etiqueta(nombre, referencia);
+        objeto.push(aniadir);
+
+    </script>
+</body>
+
+</html>

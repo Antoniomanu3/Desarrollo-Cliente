@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Numero (Quedan </label><span id="cuenta">10</span>):<br>
+    <input type="number" id="entrada">
+
+    <input type="button" value="Añadir" onclick="Añadir()">
+    <input type="button" value="Visualizar" onclick="Visualizar()"> <br>
+
+
+    <textarea id="pares" name="pares" id="" cols="30" rows="10"></textarea>
+    <textarea id="impares" name="impares" id="" cols="30" rows="10"></textarea>
+</body>
+
+<script>
+    let numeros = new Set();
+    let entrada = document.getElementById("entrada");
+    let impares = document.getElementById("impares");
+    let pares = document.getElementById("pares");
+    let cuenta = 10;
+
+
+    function Añadir() {
+        if (cuenta > 0) {
+
+            if (entrada.value != "") {
+                numeros.add(entrada.value);
+                entrada.value = "";
+                cuenta--;
+            }
+
+
+        } else alert("Ya has añadido 10 numeros.")
+        document.getElementById("cuenta").innerHTML = cuenta;
+    }
+
+    function Visualizar() {
+
+        numeros.forEach(x => {
+            if (esPar(x)) {
+                pares.value += x+", ";
+            } else {
+                impares.value += x+", ";
+            }
+        });
+    }
+
+    function esPar(numero) {
+        return (parseInt(numero) % 2 == 0 ? true : false);
+    }
+</script>
+
+</html>

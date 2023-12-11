@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios objetos</title>
+</head>
+
+<body>
+    <h1> DATOS COMUNES DEL OBJETO MIEMBRO </h1>
+
+    <label type="text"> Nombre: </label>
+    <input type="text" id="nombre"></input><br></br>
+    <label type="text"> Alta: </label>
+    <input type="date" id="alta"></input>
+    <h4>Seleccione el estado del miembro</h4>
+    <input type="radio" name="casilla" checked>Vigente</input><br></br>
+    <input type="radio" name="casilla">Suspension</input><br></br>
+    <input type="radio" name="casilla">Terminado</input><br></br>
+
+    <h3>Datos del profesorado</h3>
+    <label type="text"> Número de alumnos: </label>
+    <input type="text" id="nalumnos"></input>
+
+    <h3>Datos del alumnado</h3>
+    <label type="text"> Número de asignaturas: </label>
+    <input type="text" id="nasignaturas"></input>
+
+    <h4>Informe del objeto miembro</h4>
+    <textarea id="TextAreainforme" rows="10" cols="30"></textarea><br></br>
+    <input type="button" value="Visualizar" onclick="visualizar()"></input>
+
+    <script>
+
+        let nombre = document.getElementById("nombre");
+        let alta = document.getElementById("alta");
+        let estado = document.getElementsByName("casilla");
+        let nalumnos = document.getElementById("nalumnos");
+        let nasignaturas = document.getElementById("nasignaturas");
+        let informe = document.getElementById("TextAreaInforme");
+
+        function visualizar() {
+
+            class Miembro {
+                constructor(nombre, alta, estado) {
+                    this.nombre = nombre;
+                    this.alta = alta;
+                    this.estado = estado;
+                }
+
+                cobrar() {
+                    informe.value = "El miembro del centro " + this.nombre + "ha cobrado";
+                }
+            }
+
+            class Profesor extends Miembro {
+                constructor(nombre, alta, estado, nalumnos) {
+                    super(nombre, alta, estado);
+                    this.nalumnos = nalumnos;
+                }
+                cobrar() {
+                    super.cobrar();
+                    informe.value = informe + "por la cantidad de alumnos " + this.nasignaturas;
+                }
+            }
+
+            class Alumno extends Miembro {
+                constructor(nombre, alta, estado, nasignaturas) {
+                    super(nombre, alta, estado);
+                    this.nasignaturas = nasignaturas;
+                }
+                cobrar() {
+                    super.cobrar();
+                    informe.value = informe + "por las asignaturas " + this.nasignaturas;
+                }
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

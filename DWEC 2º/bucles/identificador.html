@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clave bienvenida</title>
+    <h1> INTRODUZCA LA CLAVE</h1>
+    <form name="miFormulario">
+        <input type="text" id="clave"/> <br> <br>
+        <input type="text" id="mensaje"> </input> <br> <br>
+        <input type="button" value="Aceptar" onclick="aceptar()"/>
+    </form>
+</head>
+
+<body>
+
+    <script>
+        function aceptar() {
+            let mensaje = "hola";
+            let intentos = 0;
+            if (document.getElementById("clave").value===clave) {
+                document.getElementById("mensaje").value="Bienvenido";
+            } else {
+                intentos++;
+                document.getElementById("mensaje").value="introduzca de nuevo la clave";
+            } if (intentos == 3) {
+                alert("Has usado demasiados intentos");
+            }
+        }
+    </script>
+</body>
+
+</html>

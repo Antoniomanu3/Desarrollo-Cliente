@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO USUARIOS</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=heqwz4vmSGC-12olmFJFFwZwodGewheHw81yr2QiGNJIaFRQrFUKNQTpkGoRby06fY6kViye1x4enGTXn-ojR7UKVl91fch5E-iYckHC0nYPdJ-PkaifAQ_1I66zUvctbTTMNrJ-9ndk_2n3Bl4z1GJFiUU3kPNk45vT0S_oiC_wehSLBsc80JGBHsJA70LqQp_d0N1qOpiHcs6TCZ19s5lNU-ngmoKLsSQamFfxZt7y7j6AgpIWQXdJfjoCIWxR" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9hdWxhdmlydHVhbDM1LmVkdWNhLm1hZHJpZC5vcmcvaWVzLnRldHVhbi5tYWRyaWQvcGx1Z2luZmlsZS5waHAvNjI5MzcvYXNzaWduc3VibWlzc2lvbl9maWxlL3N1Ym1pc3Npb25fZmlsZXMvMTQ2MzI5L21hbGFnYS1wZXJlei1qdWFuam9zZS5odG1sP2ZvcmNlZG93bmxvYWQ9MQ"/></head>
+
+<body>
+    <h1>FORMULARIO DE REGISTRO DE LOS USUARIOS DE LA APLICACIÓN TETUAN S.L.</h1>
+    <form action="" name="form0">
+        <label for="">Nombre:</label><input type="text" name="datos"><br><br>
+        <label for="">Apellidos:</label><input type="text" name="datos"><br><br>
+        <label for="">Departamento:</label><input type="text" name="datos"><br><br>
+        <label for="">Clave:</label><input type="text" name="datos"><br><br>
+        <input type="button" value="REGISTRAR" onclick="Registro()">
+    </form>
+    <h1>VISUALIZACIÓN DE DATOS REGISTRADOS</h1>
+    <textarea id="pantalla" cols="50" rows="10"></textarea>
+</body>
+
+<script>
+    let textArea = document.getElementsByTagName("textarea")[0];
+
+    class Usuario {
+        constructor(_nombre, _apellidos, _departamento, _clave) {
+            this.Nombre = _nombre;
+            this.Apellidos = _apellidos;
+            this.Departamento = _departamento;
+            this.Clave = _clave;
+
+            let dosApellidos = this.Apellidos.split(" ");
+            this.nameuser = this.Nombre[0] + dosApellidos[0] + dosApellidos[1][0];
+        }
+        Visualizar() {
+            textArea.value = "Usuario: " + this.Nombre +
+                "\nNameuser:" + this.nameuser +
+                "\nApellidos: " + this.Apellidos +
+                "\nDept: " + this.Departamento +
+                "\nClave: " + this.Clave;
+        }
+    }
+    let ListaUsuarios = new Set();
+
+    function Registro() {
+        let datos = document.getElementsByName("datos");
+
+        //Requisito Apellidos (2 apellidos)
+        let apellidos = datos[1].value;
+        let ApellidosValidos = apellidos.split(" ").length > 1;
+
+        //Requisito Clave (mayus + minus + numeros + especiales)
+        let clave = datos[3].value;
+        let ContieneMayus = false;
+        let ContieneMinus = false;
+        let ContieneNumeros = false;
+        let ContieneEspeciales = false;
+
+        let mayusculas = "ABCDEFGHIJKLMNOPQRSTXYZ";
+        let minusculas = "abcdefghijklmnopqrstxyz";
+        let numeros = "123456789";
+        let nCaracteresNormales = 0;
+
+        for (let ch of clave) {
+
+            for (let m of mayusculas) {
+                if (ch == m) {
+                    nCaracteresNormales++;
+                    ContieneMayus = true;
+                    break;
+                }
+            }
+
+            for (let m of minusculas) {
+                if (ch == m) {
+                    nCaracteresNormales++;
+                    ContieneMinus = true;
+                    break;
+                }
+            }
+
+            for (let m of numeros) {
+                if (ch == m) {
+                    nCaracteresNormales++;
+                    ContieneNumeros = true;
+                    break;
+                }
+            }
+        }
+
+        //Se considera carácteres especiales cuando no son mayusculas, minusculas o numeros.
+        let nEspeciales = clave.length - nCaracteresNormales;
+        ContieneEspeciales = nEspeciales > 0;
+
+        let ClaveValida = ContieneMayus && ContieneMinus && ContieneNumeros && ContieneEspeciales;
+
+        //Todo correcto
+        if (ApellidosValidos && ClaveValida) {
+
+            let nuevoUsuario = new Usuario(datos[0].value, datos[1].value, datos[2].value, datos[3].value);
+            nuevoUsuario.Visualizar();
+            ListaUsuarios.add(nuevoUsuario);
+
+            //Prueba de que la lista contiene todos los usuarios que se van añadiendo
+            console.log(ListaUsuarios);
+
+        } else { //Los apellidos o la clave fallan
+
+            if (!ApellidosValidos) {
+                alert("Añade dos apellidos.")
+            }
+            if (!ClaveValida) {
+                alert("Tu clave debe contener mayúsculas, minúsculas, números y carácteres especiales.")
+            }
+        }
+    }
+</script>
+
+</html>

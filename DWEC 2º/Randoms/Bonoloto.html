@@ -1,0 +1,159 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso del objeto Set</title>
+</head>
+
+<body>
+
+    <h1>Juego de la Primitiva</h1><br><br>
+    <input type="button" value="A Jugar" onclick="girabombo()"><br><br>
+    <label for="">Números premiados: </label>
+    <input type="text" name="cjanros"><br><br>
+    <h3>Número de giros de bombo</h3>
+    <label for="">Giros:</label>
+    <input type="text">
+
+    <script lang="javascript">
+
+        let intentos = 0;
+        let cjanumeros = document.getElementsByName("cjanros")[0];
+        cjanumeros.value = "";
+        let texto = "";
+        let serienros = new Set();
+        
+        let girabombo = () => {
+            //El método floor hace que en vez del max=49, se ponga max=50;
+            let numero = Math.floor(Math.random() * (50 - 1) + 1);
+            serienros.add(numero);
+            console.log(serienros);
+            cjanumeros.value = "";
+            for (let elemento of serienros) {
+                cjanumeros.value = cjanumeros.value + elemento + " ,";
+            }
+
+            intentos++;
+
+            if (serienros.size == 6) {
+                //Se propone convertir eñ set a Array y ordenarlo;
+                document.getElementsByTagName("input")[0].disabled = true;
+                cjanumeros.value = cjanumeros.value.slice(0, cjanumeros.value.length - 2);
+                document.getElementsByTagName("input")[2].value = giros;
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
+
+-->
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 for="nombre">Juego Primitiva</h1>
+    <input type="button" value="añadir" onclick="bonoloto()"><br> <br>
+
+    <label for="nombre">Numeros finales</label><br> <br>
+    <input type="text" id="numeros" name="numeros" /> <br> <br>
+    <input type="text" id="intentos" name="intentos" /> <br> <br>
+
+    <script>
+       
+        var array = [];
+        var intentos = 0;
+        function bonoloto() {
+            for (let i = 0; i < 6; i++) {
+                array[i] =  Math.floor(Math.random() * (49 - 1)) + 1;
+                for (let j = 0; j < i; j++) {
+                    if (array[i] == array[j]) {
+                        i--;
+                        array = array.pop;
+                        intentos++;
+                    }
+                }
+            }
+            var string ="";
+            for (let index = 0; index < array.length; index++) {
+               string = string  + array[index] + ", ";
+
+
+            }
+ document.getElementById("numeros").value = string;
+ document.getElementById("intentos").value = intentos;
+        }
+
+
+    </script>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso set Primitiva</title>
+</head>
+
+<body>
+    <h1 for="nombre">Juego Primitiva</h1>
+    <input type="button" value="añadir" onclick="bonoloto()"><br> <br>
+
+    <label for="nombre">Numeros finales</label><br> <br>
+    <input type="text" id="numeros" name="numeros" /> <br> <br>
+    <input type="text" id="intentos" name="intentos" /> <br> <br>
+
+    <script>
+        var lista = new Set();
+       
+        
+            var vueltas =0; 
+
+        function bonoloto() {
+    
+        var num = Math.floor(Math.random() * (49)) + 1;
+            if (lista.size<6){
+                for (let j = 0; j < lista.size; j++) {
+                    if (lista[j] == num) {
+                      
+                        vueltas++;
+                    }}
+               lista.add(num); 
+               vueltas++; 
+            }
+           
+
+ 
+          document.getElementById("intentos").value = vueltas;
+        }
+       
+        console.log(lista);
+
+    </script>
+</body>
+
+</html>

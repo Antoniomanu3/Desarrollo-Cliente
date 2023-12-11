@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button name="avanzar">Avanzar</button>
+    <textarea id="fotitos"></textarea>
+    <button name="retroceder">Retroceder</button>
+
+    <img src="./img/cataratas.jpg"  id="0">
+    <img src="./img/gran-canon.jpg"  id="1">
+    <img src="./img/lago.jpg"  id="2">
+
+    <script>
+
+
+        var img =[document.getElementById("0"), document.getElementById("1"), document.getElementById("2")]        
+
+        let posicion = 0;
+        function avanza(posicion) {
+
+            if (posicion < 2)
+                posicion++;
+            else
+                posicion = 0;
+
+
+
+        }
+        function retrocede() {
+
+            if (posicion > 0)
+                posicion--;
+            else
+                posicion = 2;
+
+
+        }
+       document.getElementById("fotitos").value = img[1];
+
+
+    </script>
+</body>
+
+</html>
