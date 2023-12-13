@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>repaso</title>
 </head>
+
 <body>
     <script>
         //no esta en el word BOM1, se va a refereciar
         window.opener("");
         window.parent();
         window.top();//objeto window de mas nivel jerarquico
-        
+
         window.confirm(); //ventana con dialogo y btn Aceptar y cancelar
         //uso metodo open
-        var refer_obj_window = window.open([url],[nombre_de_la_ventana],[configuracion_ventana]);
+        var refer_obj_window = window.open([url], [nombre_de_la_ventana], [configuracion_ventana]);
         //uso metodo close
         nombre_de_la_ventana.close();
         //pone el foco en la ventana abierta, la "activa"
@@ -48,7 +50,7 @@
         //uso length, numero de paginas del historial
         var numeroDeEntradas = window.history.length;
         //uso state
-        alert ('Valor window.history.state es: '+ window.history.state); // Por defecto null
+        alert('Valor window.history.state es: ' + window.history.state); // Por defecto null
         var currentState = history.state;
 
         //uso back, retrocede el historial
@@ -65,7 +67,74 @@
         pushState(); //añade entradas en el historial
         replaceState(); //modifica entradas en el historial
 
+        /*-------------
+        Propiedades Location
+        -------------*/
+
+        //uso location, cambia de URL
+        console.log(window.location.href);
+        //uso protocol, devuelve Http o etc...
+        alert('protocolo actual: ' + window.location.protocol);
+        //uso host, devuelve el nombre del servidor
+        console.log("host actual " + location.host);
+        //uso hostname, devuelve solo el nombre del servidor sin información extra
+        console.log("Nombre del Servidor " + location.hostname);
+        //uso pathname, devuelve la ruta
+        console.log("Ruta Actual " + location.pathname);
+        //uso search, cadena posterior a la busqueda
+        console.log("Cadena Buscada " + location.search); //https://www.google.com/search?client=firefox-b-d&q=correoweb.
+        //uso hash
+        console.log(location.hash);
+        //uso origin, raiz
+        console.log(location.origin);
+
+        /*-------------
+        Metodos Location
+        -------------*/
+
+        //assign, asigna una url a una ventana actual
+        console.log(window.location.assign("url"));
+        //reload, recarga la url actual, true por servidor, false por caché
+        console.log(window.location.reload(false || true));
+        //replace, reemplaza
+        console.log(window.location.replace("url"));
+        //toString, devuelve una cadena
+        console.log("la cadena actual es " + location.toString());
+
+        /*-------------
+        Propiedades Screen
+        -------------*/
+
+        //width, altura en pixeles
+        console.log("El ancho es " + screen.width);
+        //height, alto en pixeles
+        console.log("El alto es " + screen.height);
+        //availWidth, ancho de pantalla disponible
+        console.log("El ancho de la pantalla es " + screen.availWidth);
+        //availHeight, alto de pantalla disponible
+        console.log("El alto de la pantalla es " + screen.availHeight);
+        //colorDepth, pixelDepth, orientation
+
+        /*-------------
+        Propiedades Navigator
+        -------------*/
+
+        //userAgent, cadena de texto que representa el navegador empleado
+        console.log("La cadena es " + navigator.userAgent);
+        //geolocation, obtener info sobre la ubicacion donde el usuario navega
+        //language, devuelve string del lenguaje del navegador
+        var lenguaje = navigator.language;
+        console.log("codigo de lenguaje " + lenguaje);
+        //onLine, devuelve true o false si hay o no internet
+        console.log("hay linea? " + navigator.onLine);
+
+        /*-------------
+        Metodos Navigator
+        -------------*/
+
+        //vibrate(),  vibra el dispositivo
         
     </script>
 </body>
+
 </html>
