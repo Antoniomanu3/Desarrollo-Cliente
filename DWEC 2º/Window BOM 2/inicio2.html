@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM II</title>
+</head>
+<body>
+    <script>
+        //apuntes, aclaraciones y definiciones de BOM II
+
+        frames[posición]; //contiene los diferentes marcos del documento.
+        links[posición]; //contiene los diferentes enlaces externos de un documento.
+        images[posición]; //contiene las diferentes imágenes de un documento.
+        forms[posición]; //contiene los diferentes formularios de un documento.
+        elements[posición]; //contiene los diferentes elementos de un formulario.
+        options[posición]; //contiene las diferentes opciones de un objeto select.
+
+        /*-------------
+        Propiedades Del objeto document
+        -------------*/
+
+        //doctype, devuelve el tipo de documento
+        //documentElement, Devuelve el Element que es el elemento raíz de document, es decir, html
+        //documentURI: devuelve la ubicación del documento como un string.
+        //styleSheets: Devuelve una lista de objetos de tipo stylesheet
+        //activeElement, elemento perteneciente al DOM que tiene el foco
+        //anchors, todas las anclas del documento
+        //body, contenido
+        //forms, coleccion de todos los elementos
+        //head, devuelve el head
+        //images, devuele la colección de todas las imagenes del documento
+        //links, devuelve la colección de todos los enlaces externos del documento
+        //lastModified, ultima fecha del documento
+        //location, URL del documento
+
+        //readyState, ¡¡¡¡¡¡¡EL ESTADO DE CARGA DEL DOCUMENTO!!!!!!
+        //complete, se ha cargado todo correctamente
+        //interactive, hay algo cargando pero no todo: DOMContentLoaded
+        //loading, nada cargado todavía
+
+        //MANEJADOR DE EVENTO: onredystatechange
+        //document.onreadystatechange
+
+        /*-------------
+        Metodos del objeto document
+        -------------*/
+
+        //hasfocus(), true o false si el foco esta en algun sitio del documento activo
+        //close, finaliza un documento abierto con document.open
+        //open, abre un documento para la escritura
+        //write, escribe cadena de texto en el documento
+        //writeln, escribe una nueva línea en el documento
+
+        /*-------------
+        Propiedades Del objeto link
+        -------------*/
+
+        //link, relacion entre el documento actual y uno externo
+        //href, URL del recurso enlazado
+        //rel, relacion del documento enlazado con el actual
+        //type, tipo MIME del recurso enlazado
+        //target, define el nombre del frame relacionado
+
+        /*-------------
+        Propiedades y Metodos del objeto Anchor
+        -------------*/
+
+        //<a>, enlace a otras paginas de internet
+        //href, URL o fragmento la cual apunta al enlace
+        //rel, lo mismo que link
+        //target, igual
+        //type, tipo de medio MIME para la URL enlazada
+
+        /*-------------
+        Propiedades Del objeto Image
+        -------------*/
+
+        //vertical-align, alinear verticalmente
+        //alt, texto alternativo que describe la imagen
+        //height, altura en pixeles
+        //width, anchura en pixeles
+        //src, URL de la imagen
+        //srcset, lista de cadenas separadas por comas indicando las posibles fuentes para usar
+        //sizes, lista de cadenas separadas por comas indicandolas el tamaño de la fuente
+
+        /*-------------
+        Propiedades Del objeto Form
+        -------------*/
+
+        //action, cadena que contiene el valor ACTION del formulario
+        //enctype, MIRAR EN PDF BOM II
+        //name
+        //target
+        //elements, array que contiene todos los elementos del formulario
+        //length, cantidad de elementos del formulario
+
+        /*-------------
+        Metodos del objeto Form
+        -------------*/
+
+        //reset(), borra los datos que haya introducido el usuario por formulario
+        //submit, envia el formulario
+
+        
+    </script>
+</body>
+</html>
